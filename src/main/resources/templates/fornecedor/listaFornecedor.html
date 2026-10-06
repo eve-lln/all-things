@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Fornecedores</title>
+    <link rel="stylesheet" th:href="@{/stylesheet.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Lista de Fornecedores</h1>
+    <h3><a href="/fornecedores/criar" class="botao">
+        Cadastar Fornecedor</a></h3>
+    <h3><a href="/home" class="botao">
+            Voltar à página inicial</a></h3>
+
+    <table>
+        <tr>
+            <td>Lista de Fornecedores</td>
+        </tr>
+
+    <tr>
+        <th>Nome</th>
+        <th>Endereço</th>
+        <th>Cidade</th>
+        <th>Estado</th>
+        <th>CEP</th>
+        <th>CNPJ</th>
+        <th colspan="2">Ações</th>
+    </tr>
+    
+    <tr th:each="Fornecedor : ${fornecedores}">
+        <td th:text="${Fornecedor.nomeFornecedor}"></td>
+        <td th:text="${Fornecedor.enderecoFornecedor}"></td>
+        <td th:text="${Fornecedor.cidadeFornecedor}"></td>
+        <td th:text="${Fornecedor.estadoFornecedor}"></td>
+        <td th:text="${Fornecedor.cepFornecedor}"></td>
+        <td th:text="${Fornecedor.cnpjFornecedor}"></td>
+        <td>
+            <a th:href="@{/fornecedores/editar/{id}(id=${Fornecedor.idFornecedor})}">Editar</a>
+            <a th:href="@{/fornecedores/excluir/{id}(id=${Fornecedor.idFornecedor})}">Excluir</a>
+            <a></a>
+        </td>
+    </tr>
+    
+    </table>
+    
+</body>
+</html>

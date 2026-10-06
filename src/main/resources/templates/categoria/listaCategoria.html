@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Produtos</title>
+    <link rel="stylesheet" th:href="@{/stylesheet.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Lista de Categorias</h1>
+    <h3><a href="/categorias/criar" class="botao">
+        Nova Categoria</a></h3>
+    <h3><a href="/home" class="botao">
+            Voltar à página inicial</a></h3>
+
+    <table>
+        <tr>
+            <td>Lista de Categorias</td>
+        </tr>
+
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th colspan="2">Ações</th>
+        </tr>
+
+        <tr th:each="Categoria : ${categorias}">
+            <td th:text="${Categoria.nomeCategoria}"></td>
+            <td th:text="${Categoria.descricaoCategoria}"></td>
+            <td>
+                <a th:href="@{/categorias/editar/{id}(id=${Categoria.idCategoria})}">Editar</a>
+                <a th:href="@{/categorias/excluir/{id}(id=${Categoria.idCategoria})}">Excluir</a>
+            </td>
+        </tr>
+
+    </table>
+</body>
+</html>

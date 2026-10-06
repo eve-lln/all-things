@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Fornecedores</title>
+    <link rel="stylesheet" th:href="@{/stylesheet.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Cadastro de Fornecedores</h1>
+    <form th:action="@{/fornecedores/salvar}" method="post" th:object="${fornecedor}">
+        <label for="nomeFornecedor">Nome</label>
+        <input
+        type="text"
+        id="nomeFornecedor"
+        name="nomeFornecedor"
+        th:field="*{nomeFornecedor}"
+        >
+
+        <label for="enderecoFornecedor">Endereço</label>
+        <input
+        type="text"
+        id="enderecoFornecedor"
+        name="enderecoFornecedor"
+        th:field="*{enderecoFornecedor}"
+        >
+
+        <label for="cidadeFornecedor">Cidade</label>
+        <input
+        type="text"
+        id="cidadeFornecedor"
+        name="cidadeFornecedor"
+        th:field="*{cidadeFornecedor}"
+        >
+
+        <label for="estadoFornecedor">Estado</label>
+        <input
+        type="text"
+        id="estadoFornecedor"
+        name="estadoFornecedor"
+        th:field="*{estadoFornecedor}"
+        >
+
+        <label for="cepFornecedor">CEP</label>
+        <input
+        type="text"
+        id="cepFornecedor"
+        name="cepFornecedor"
+        th:field="*{cepFornecedor}"
+        >
+
+        <label for="cnpjFornecedor">CNPJ</label>
+        <input
+        type="text"
+        id="cnpjFornecedor"
+        name="cnpjFornecedor"
+        th:field="*{cnpjFornecedor}"
+        >
+
+        <button type="submit">Salvar Fornecedor</button>
+
+    </form>
+    
+</body>
+</html>

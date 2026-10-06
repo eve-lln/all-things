@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Acesso ao Sistema</title>
+        <link rel="stylesheet" th:href="@{/stylesheet.css}">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+<body>
+    <h1>Sistema All Things</h1>
+    <p>Informe suas credenciais para acessar o sistema</p>
+
+    <p th:if="${param.logout}">
+        Logout efetuado com sucesso 
+    </p>
+    <form method="post" th:action = "@{/login}">
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" name="username">
+        
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password">
+
+        <button type="submit">Entrar no Sistema</button>
+    </form>
+</body>
+</html>

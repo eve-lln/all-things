@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Produtos</title>
+    <link rel="stylesheet" th:href="@{/stylesheet.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Cadastro de Produtos</h1>
+    <form th:action="@{/produtos/salvar}" method="post" th:object="${produto}">
+
+        <label for="nomeProduto">Nome</label>
+        <input
+        type="text"
+        id="nomeProduto"
+        name="nomeProduto"
+        th:field="*{nomeProduto}"
+        >
+        <br><br>
+
+        <label for="descricaoProduto">Descrição</label>
+        <input
+        type="text"
+        id="descricaoProduto"
+        name="descricaoProduto"
+        th:field="*{descricaoProduto}"
+        >
+        <br><br>
+
+        <label for="marcaProduto">Marca</label>
+        <input
+        type="text"
+        id="marcaProduto"
+        name="marcaProduto"
+        th:field="*{marcaProduto}"
+        >
+        <br><br>
+
+        <label for="modeloProduto">Modelo</label>
+        <input 
+        type="text"
+        id="modeloProduto"
+        name="modeloProduto"
+        th:field="*{modeloProduto}"
+        >
+        <br><br>
+
+        <label for="unidadeProduto">Unidade</label>
+        <input 
+        type="text"
+        id="unidadeProduto"
+        name="unidadeProduto"
+        th:field="*{unidadeProduto}"
+        >
+        <br><br>
+
+        <label for="valorProduto">Valor</label>
+        <input 
+        type="text"
+        id="valorProduto"
+        name="valorProduto"
+        th:field="*{valorProduto}"
+        >
+        <br><br>
+
+        <label for= "idFornecedor">Fornecedor</label>
+        <select th:field="*{fornecedor}">
+            <option value="" disabled selected>Selecione o fornecedor</option>
+            <option th:each="fornecedor : ${fornecedores}"
+                    th:text="${fornecedor.nomeFornecedor}"
+                    th:value="${fornecedor.idFornecedor}"
+            > </option>
+        </select>
+        <br><br>
+
+        <label for= "idCategoria">Categoria</label>
+        <select th:field="*{categoria}">
+            <option value="" disabled selected>Selecione a categoria</option>
+            <option th:each="categoria : ${categorias}"
+                    th:text="${categoria.nomeCategoria}"
+                    th:value="${categoria.idCategoria}">
+            </option>
+        </select>
+        <br><br>
+
+        <button type="submit">Salvar Produto</button>
+    </form>
+</body>
+</html>
